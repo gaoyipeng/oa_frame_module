@@ -11,5 +11,8 @@
 
     <artifactId>oa_core</artifactId>
 
+    <dependencies>
+
+    </dependencies>
 
 </project>

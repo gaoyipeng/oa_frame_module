@@ -10,5 +10,8 @@
         <module name="oa_service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="oa_client" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

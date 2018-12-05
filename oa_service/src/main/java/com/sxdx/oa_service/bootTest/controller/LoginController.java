@@ -1,5 +1,6 @@
 package com.sxdx.oa_service.bootTest.controller;
 
+import com.sxdx.oa_core.util.DateUtil;
 import com.sxdx.oa_service.bootTest.bean.JsonResult;
 import com.sxdx.oa_service.bootTest.bean.User;
 import com.sxdx.oa_service.bootTest.exception.UserNotExistException;
@@ -24,11 +25,12 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("/test")
     public String test(){
-        if(true){
+        System.out.println(DateUtil.formeDate());
+        /*if(true){
             throw new UserNotExistException();
-        }
+        }*/
         //int a = 1/0;
-        return "test";
+        return DateUtil.formeDate();
     }
 
     @RequestMapping(value = {"/","/index.html"})

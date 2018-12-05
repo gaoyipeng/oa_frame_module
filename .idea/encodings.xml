@@ -2,10 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oa_client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oa_core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oa_service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oa_web_service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oa_web_service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oa_webservice" charset="UTF-8" />
   </component>
 </project>
