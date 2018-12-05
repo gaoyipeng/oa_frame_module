@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+server:
+  servlet:
+    context-path: /oaframe
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    # mybatis配置文件所在路径
+  mapper-locations: classpath:mybatis/mapper/*.xml     # 所有的mapper映射文件
