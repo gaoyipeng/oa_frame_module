@@ -4,8 +4,8 @@ import com.sxdx.oa_service.springCacheTest.model.Department;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Mapper
 @Repository
+@Mapper
 public interface DepartmentMapper {
     int deleteByPrimaryKey(Integer id);
 

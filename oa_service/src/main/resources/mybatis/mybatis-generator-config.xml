@@ -63,12 +63,10 @@
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名 -->
         <table tableName="department" domainObjectName="Department" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false"></table>
+               selectByExampleQueryId="false"/>
         <table tableName="employee" domainObjectName="Employee" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
+               selectByExampleQueryId="false"/>
             <!-- 数据库中该字段的类型是 txt ,不同版本生成对应字体类的属性类型可能不同，因此指定转换类型 -->
-
-        </table>
     </context>
 </generatorConfiguration>

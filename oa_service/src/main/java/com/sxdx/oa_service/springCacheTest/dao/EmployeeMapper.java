@@ -4,8 +4,8 @@ import com.sxdx.oa_service.springCacheTest.model.Employee;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Mapper
 @Repository
+@Mapper
 public interface EmployeeMapper {
     int deleteByPrimaryKey(Integer id);
 
