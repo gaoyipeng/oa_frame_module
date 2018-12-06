@@ -1,6 +1,11 @@
 package com.sxdx.oa_service.springCacheTest.model;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+
+    private static final long serialVersionUID = 958788877558289248L;
+
     private Integer id;
 
     private String lastname;

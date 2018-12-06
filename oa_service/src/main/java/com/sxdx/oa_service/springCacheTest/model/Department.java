@@ -1,6 +1,11 @@
 package com.sxdx.oa_service.springCacheTest.model;
 
-public class Department {
+import java.io.Serializable;
+
+public class Department implements Serializable {
+
+
+    private static final long serialVersionUID = -4728619344883719372L;
     private Integer id;
 
     private String departmentname;
