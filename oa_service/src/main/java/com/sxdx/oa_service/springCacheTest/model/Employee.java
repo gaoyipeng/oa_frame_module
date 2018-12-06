@@ -9,14 +9,14 @@ public class Employee {
 
     private Integer gender;
 
-    private Integer did;
+    private Integer dId;
 
-    public Employee(Integer id, String lastname, String email, Integer gender, Integer did) {
+    public Employee(Integer id, String lastname, String email, Integer gender, Integer dId) {
         this.id = id;
         this.lastname = lastname;
         this.email = email;
         this.gender = gender;
-        this.did = did;
+        this.dId = dId;
     }
 
     public Employee() {
@@ -55,11 +55,11 @@ public class Employee {
         this.gender = gender;
     }
 
-    public Integer getDid() {
-        return did;
+    public Integer getdId() {
+        return dId;
     }
 
-    public void setDid(Integer did) {
-        this.did = did;
+    public void setdId(Integer dId) {
+        this.dId = dId;
     }
 }
