@@ -5,12 +5,10 @@ import com.sxdx.oa_service.mybatisTest.bean.Dept;
 import com.sxdx.oa_service.mybatisTest.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author gaoypieng
@@ -18,20 +16,42 @@ import java.util.List;
  */
 @Controller
 public class MybatisController {
-
     @Autowired
     private DeptService deptService;
 
-    @GetMapping(value = "/dept")
+    @GetMapping(value = "/getDeptList")
     @ResponseBody
-    public List<Dept> gerDeptList() throws Exception {
-        return this.deptService.list();
+    public List<Dept> getDeptList() {
+        List<Dept> deptList = this.deptService.getAllDept();
+        return deptList;
     }
 
-    @PostMapping(value = "/dept")
+    @PostMapping(value = "insertDept")
     @ResponseBody
-    public Boolean addDept(@RequestBody Dept dept) throws Exception {
-        return this.deptService.add(dept);
+    public int insertDept(@RequestBody Dept dept){
+        int num = this.deptService.insertDept(dept);
+        return dept.getId();
     }
 
+    /**
+     * 返回map，key:字段名称 value:字段值,
+     * @return
+     */
+    @GetMapping(value = "/getDeptMap/{id}")
+    @ResponseBody
+    public Map<String,Object> getDeptReturnMap(@PathVariable Integer id){
+        Map<String,Object> map = this.deptService.getDeptReturnMap(id);
+        return map;
+    }
+
+    /**
+     * 返回map，key:主键(可指定) value:数据记录,
+     * @return
+     */
+    @GetMapping(value = "/getDeptsMap")
+    @ResponseBody
+    public Map<Integer,Object> getDeptsReturnMap(){
+        Map<Integer,Object> map = this.deptService.getDeptsReturnMap();
+        return map;
+    }
 }

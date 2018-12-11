@@ -3,6 +3,7 @@ package com.sxdx.oa_service.mybatisTest.service;
 import com.sxdx.oa_service.mybatisTest.bean.Dept;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author gaoypieng
@@ -10,7 +11,9 @@ import java.util.List;
  */
 
 public interface DeptService {
-    public List<Dept> list() ;
 
-    public boolean add(Dept vo) ;
+    List<Dept> getAllDept();
+    int insertDept(Dept dept);
+    Map<String,Object> getDeptReturnMap(Integer id);
+    Map<Integer,Object> getDeptsReturnMap();
 }

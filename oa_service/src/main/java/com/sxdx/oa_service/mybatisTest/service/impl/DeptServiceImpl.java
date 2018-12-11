@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author gaoypieng
@@ -15,19 +16,26 @@ import java.util.List;
  */
 @Service
 public class DeptServiceImpl implements DeptService {
-
     @Autowired
     private DeptMapper deptDao;
 
     @Override
-    public List<Dept> list() {
-        return deptDao.findAll();
+    public List<Dept> getAllDept() {
+        return deptDao.getAllDept();
     }
 
     @Override
-    @Transactional
-    public boolean add(Dept vo) {
-        boolean aa = deptDao.doCreate(vo);
-        return aa;
+    public int insertDept(Dept dept) {
+        return deptDao.insertDept(dept);
     }
+
+    @Override
+    public Map<String, Object> getDeptReturnMap(Integer id) {
+        return deptDao.getDeptReturnMap(id);
+    }
+    @Override
+    public Map<Integer,Object> getDeptsReturnMap(){
+        return deptDao.getDeptsReturnMap();
+    }
+
 }

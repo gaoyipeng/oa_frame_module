@@ -20,10 +20,10 @@
 
 
         <!-- 数据库的相关配置 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/oaframe?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
-                        userId="root"
-                        password="gaoyipeng">
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
         </jdbcConnection>
 
         <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
@@ -38,7 +38,7 @@
                 targetProject     指定在该项目下所在的路径
         -->
 
-        <javaModelGenerator targetPackage="com.sxdx.oa_service.springCacheTest.model" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="${model.path}" targetProject="./src/main/java">
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
             <!-- 是否对model添加 构造函数 -->
@@ -50,21 +50,22 @@
         </javaModelGenerator>
 
         <!-- *Mapper.xml 文件的位置 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources/mybatis">
+        <sqlMapGenerator targetPackage="mapper" targetProject="${mapper.path}">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- Mapper 接口文件的位置 -->
-        <javaClientGenerator targetPackage="com.sxdx.oa_service.springCacheTest.dao" targetProject="./src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="${dao.path}" targetProject="./src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
         <!-- 相关表的配置 -->
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名 -->
-        <table tableName="department" domainObjectName="Department" enableCountByExample="false"
+        <!--<table tableName="department" domainObjectName="Department" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false"/>
-        <table tableName="employee" domainObjectName="Employee" enableCountByExample="false"
+               selectByExampleQueryId="false"/>-->
+
+        <table tableName="${tableName}" domainObjectName="${beanName}" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"/>
             <!-- 数据库中该字段的类型是 txt ,不同版本生成对应字体类的属性类型可能不同，因此指定转换类型 -->

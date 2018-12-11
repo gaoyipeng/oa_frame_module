@@ -1,19 +1,25 @@
 package com.sxdx.oa_service.mybatisTest.bean;
 
-/**
- * @author gaoypieng
- * @create 2018-10-28 12:33
- */
 public class Dept {
-    private Long deptno ;
-    private String dname ;
+    private Integer id;
 
-    public Long getDeptno() {
-        return deptno;
+    private String dname;
+
+    public Dept(Integer id, String dname) {
+        this.id = id;
+        this.dname = dname;
     }
 
-    public void setDeptno(Long deptno) {
-        this.deptno = deptno;
+    public Dept() {
+        super();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDname() {
@@ -21,14 +27,6 @@ public class Dept {
     }
 
     public void setDname(String dname) {
-        this.dname = dname;
-    }
-
-    @Override
-    public String toString() {
-        return "Dept{" +
-                "deptno=" + deptno +
-                ", dname='" + dname + '\'' +
-                '}';
+        this.dname = dname == null ? null : dname.trim();
     }
 }
