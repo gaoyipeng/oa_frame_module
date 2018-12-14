@@ -36,9 +36,8 @@ public class CacheTestServiceImpl implements CacheTestService {
 
     @Override
     @Cacheable(cacheNames = {"dept"},//指定缓存组件名字，可以为字符中，也可以为数组
-            key = "#id")
+            key = "#root.methodName")
     public Department selectByPrimaryKey(Integer id) {
-        System.out.println(departmentMapper.selectByPrimaryKey(id).toString());
         return departmentMapper.selectByPrimaryKey(id);
     }
 
