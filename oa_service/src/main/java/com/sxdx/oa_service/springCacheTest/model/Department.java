@@ -34,4 +34,12 @@ public class Department implements Serializable {
     public void setDepartmentname(String departmentname) {
         this.departmentname = departmentname == null ? null : departmentname.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", departmentname='" + departmentname + '\'' +
+                '}';
+    }
 }

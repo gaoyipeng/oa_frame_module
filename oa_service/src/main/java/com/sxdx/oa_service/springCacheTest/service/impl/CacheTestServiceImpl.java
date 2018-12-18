@@ -8,12 +8,18 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisKeyValueTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.TimeUnit;
 
 
 @Service
-@CacheConfig(cacheNames = "dept")//抽取缓存的公共配置
 public class CacheTestServiceImpl implements CacheTestService {
+
+    @Autowired
+    RedisTemplate redisTemplate;
 
     @Autowired
     private DepartmentMapper departmentMapper;
@@ -35,14 +41,17 @@ public class CacheTestServiceImpl implements CacheTestService {
     }
 
     @Override
-    @Cacheable(cacheNames = {"dept"},//指定缓存组件名字，可以为字符中，也可以为数组
-            key = "#root.methodName")
+    @Cacheable(cacheNames = {"dept"},key = "#id")
     public Department selectByPrimaryKey(Integer id) {
-        return departmentMapper.selectByPrimaryKey(id);
+        Department department = departmentMapper.selectByPrimaryKey(id);
+        redisTemplate.opsForValue().set("key1",department);
+        redisTemplate.opsForValue().set("key2","1234",30, TimeUnit.SECONDS);
+
+        return department;
     }
 
     @Override
-    @CachePut(cacheNames = {"dept"},key = "#result.id")
+    @CachePut(cacheNames = {"dept"},key = "#record.id")
     public Department updateByPrimaryKeySelective(Department record) {
         departmentMapper.updateByPrimaryKeySelective(record);
         return record;
