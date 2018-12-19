@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author gaoypieng
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *          当两组键值对规则相匹配的时候,消息会被发送到匹配的消息队列中.
  * 　　   （4）Fanout是路由广播的形式,将会把消息发给绑定它的全部队列,即便设置了key,也会被忽略.
  */
-@Controller
+@RestController
 public class RabbitmqController {
 
     @Autowired
@@ -30,7 +31,6 @@ public class RabbitmqController {
      * 测试 direct 交换器
      */
     @GetMapping(value = "/testRabbitmq01")
-    @ResponseBody
     public Meeting testRabbitmq01(){
         Meeting meeting = new Meeting();
         meeting.setMeetingName("会议名称");

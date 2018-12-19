@@ -5,25 +5,28 @@ import com.sxdx.oa_service.bootTest.bean.JsonResult;
 import com.sxdx.oa_service.bootTest.bean.User;
 import com.sxdx.oa_service.bootTest.exception.UserNotExistException;
 import com.sxdx.oa_service.bootTest.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 /**
  * @author 高一鹏dev
  * @create 2018-10-21 11:12
  */
-@Controller
+@Api(value = "LoginController模块",tags = "LoginController模块")
+@RestController
 public class LoginController {
 
     @Autowired
     private UserService userService;
 
-    @ResponseBody
-    @RequestMapping("/test")
+    @GetMapping ("/test")
     public String test(){
         System.out.println(DateUtil.formeDate());
         /*if(true){
@@ -33,9 +36,9 @@ public class LoginController {
         return DateUtil.formeDate();
     }
 
-    @RequestMapping(value = {"/","/index.html"})
-    public String login(){
-        return "index";
+    @GetMapping(value = {"/","/index.html"})
+    public void login(HttpServletResponse response) throws IOException {
+        response.sendRedirect("https://zwfw.miit.gov.cn/site/");
     }
 
     /**
@@ -44,7 +47,6 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
-    @ResponseBody
     public ResponseEntity<JsonResult> getUserById (@PathVariable(value = "id") Integer id){
         JsonResult r = new JsonResult();
         try {
@@ -63,7 +65,6 @@ public class LoginController {
      * 查询用户列表
      * @return
      */
-    @ResponseBody
     @RequestMapping(value = "users", method = RequestMethod.GET)
     public ResponseEntity<JsonResult> getUserList (){
         JsonResult r = new JsonResult();
@@ -84,7 +85,6 @@ public class LoginController {
      * @param user
      * @return
      */
-    @ResponseBody
     @RequestMapping(value = "user", method = RequestMethod.POST)
     public ResponseEntity<JsonResult> add (@RequestBody User user){
         JsonResult r = new JsonResult();
@@ -110,7 +110,6 @@ public class LoginController {
      * @param id
      * @return
      */
-    @ResponseBody
     @RequestMapping(value = "user/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<JsonResult> delete (@PathVariable(value = "id") Integer id){
         JsonResult r = new JsonResult();
@@ -137,7 +136,6 @@ public class LoginController {
      * @param user
      * @return
      */
-    @ResponseBody
     @RequestMapping(value = "user/{id}", method = RequestMethod.PUT)
     public ResponseEntity<JsonResult> update (@PathVariable("id") Integer id, @RequestBody User user){
         JsonResult r = new JsonResult();

@@ -14,20 +14,18 @@ import java.util.Map;
  * @author gaoypieng
  * @create 2018-10-28 12:03
  */
-@Controller
+@RestController
 public class MybatisController {
     @Autowired
     private DeptService deptService;
 
     @GetMapping(value = "/getDeptList")
-    @ResponseBody
     public List<Dept> getDeptList() {
         List<Dept> deptList = this.deptService.getAllDept();
         return deptList;
     }
 
     @PostMapping(value = "insertDept")
-    @ResponseBody
     public int insertDept(@RequestBody Dept dept){
         int num = this.deptService.insertDept(dept);
         return dept.getId();
@@ -38,7 +36,6 @@ public class MybatisController {
      * @return
      */
     @GetMapping(value = "/getDeptMap/{id}")
-    @ResponseBody
     public Map<String,Object> getDeptReturnMap(@PathVariable Integer id){
         Map<String,Object> map = this.deptService.getDeptReturnMap(id);
         return map;
@@ -49,7 +46,6 @@ public class MybatisController {
      * @return
      */
     @GetMapping(value = "/getDeptsMap")
-    @ResponseBody
     public Map<Integer,Object> getDeptsReturnMap(){
         Map<Integer,Object> map = this.deptService.getDeptsReturnMap();
         return map;
