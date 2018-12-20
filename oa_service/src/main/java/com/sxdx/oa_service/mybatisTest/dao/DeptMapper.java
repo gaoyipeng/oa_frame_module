@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
-@Repository
 @Mapper
+@Repository
 public interface DeptMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -28,7 +28,7 @@ public interface DeptMapper {
     int insertDept(Dept record);
 
     Map<String, Object> getDeptReturnMap(Integer id);
+
     @MapKey("id")
     Map<Integer, Object> getDeptsReturnMap();
-
 }

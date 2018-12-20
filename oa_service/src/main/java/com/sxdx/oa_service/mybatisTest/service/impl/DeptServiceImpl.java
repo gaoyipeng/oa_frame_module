@@ -5,7 +5,6 @@ import com.sxdx.oa_service.mybatisTest.dao.DeptMapper;
 import com.sxdx.oa_service.mybatisTest.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -18,17 +17,14 @@ import java.util.Map;
 public class DeptServiceImpl implements DeptService {
     @Autowired
     private DeptMapper deptDao;
-
     @Override
     public List<Dept> getAllDept() {
         return deptDao.getAllDept();
     }
-
     @Override
     public int insertDept(Dept dept) {
         return deptDao.insertDept(dept);
     }
-
     @Override
     public Map<String, Object> getDeptReturnMap(Integer id) {
         return deptDao.getDeptReturnMap(id);
