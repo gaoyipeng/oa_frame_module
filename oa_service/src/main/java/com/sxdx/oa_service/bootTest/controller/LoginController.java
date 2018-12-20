@@ -29,9 +29,9 @@ public class LoginController {
     @GetMapping ("/test")
     public String test(){
         System.out.println(DateUtil.formeDate());
-        /*if(true){
+        if(true){
             throw new UserNotExistException();
-        }*/
+        }
         //int a = 1/0;
         return DateUtil.formeDate();
     }
