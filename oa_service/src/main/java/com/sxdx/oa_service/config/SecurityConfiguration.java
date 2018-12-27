@@ -8,6 +8,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.RequestMatcher;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Configuration
 @EnableWebSecurity
@@ -15,13 +18,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * HTTP请求安全处理
+     *
      * @param http
      * @throws Exception
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
+                .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/swagger-resources/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/v2/api-docs").permitAll()
                 .antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
@@ -30,12 +34,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
-            .formLogin().permitAll();
+                //.csrf().disable() //关闭CSRF
+                .csrf().requireCsrfProtectionMatcher(new RequestMatcher() {
+            @Override
+            public boolean matches(HttpServletRequest httpServletRequest) {
+                String servletPath = httpServletRequest.getServletPath();
+                if (servletPath.contains("/druid")) {
+                    return false;
+                }
+                return false;
+            }
+        })
+                .and()
+                .formLogin().permitAll();
 
     }
 
     /**
      * 身份验证管理生成器
+     *
      * @param auth
      * @throws Exception
      */
@@ -46,6 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * WEB安全
+     *
      * @param web
      * @throws Exception
      */
