@@ -8,7 +8,7 @@
     <properties resource="jdbc.properties"></properties>
 
     <!-- 本地数据库驱动程序jar包的全路径 -->
-    <classPathEntry location="D:\MyInstall\maven\res\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"/>
+    <classPathEntry location="${mysql-connector-java.path}"/>
 
     <context id="context" targetRuntime="MyBatis3">
         <!-- optional，旨在创建class时，对注释进行控制 -->
