@@ -36,15 +36,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 //.csrf().disable() //关闭CSRF
                 .csrf().requireCsrfProtectionMatcher(new RequestMatcher() {
-            @Override
-            public boolean matches(HttpServletRequest httpServletRequest) {
-                String servletPath = httpServletRequest.getServletPath();
-                if (servletPath.contains("/druid")) {
-                    return false;
-                }
-                return false;
-            }
-        })
+                    @Override
+                    public boolean matches(HttpServletRequest httpServletRequest) {
+                        String servletPath = httpServletRequest.getServletPath();
+                        if (servletPath.contains("/druid")) {
+                            return false;
+                        }
+                        return false;
+                    }
+                })
                 .and()
                 .formLogin().permitAll();
 

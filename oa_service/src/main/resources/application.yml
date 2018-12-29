@@ -1,6 +1,8 @@
 spring:
   profiles:
     active: prod
+  application:
+    name: oa_frame_service
 server:
   servlet:
     context-path: /oaframe
