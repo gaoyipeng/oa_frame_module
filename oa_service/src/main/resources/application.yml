@@ -6,6 +6,12 @@ spring:
 server:
   servlet:
     context-path: /oaframe
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7001/eureka/
 
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml     # 所有的mapper映射文件
