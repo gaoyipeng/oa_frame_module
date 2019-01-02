@@ -3,14 +3,17 @@ spring:
     active: prod
   application:
     name: oa_frame_service
+
 server:
   servlet:
     context-path: /oaframe
 eureka:
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
+    instance-id: ${spring.cloud.client.ipAddress:127.0.0.1}:${server.port}:${server.servlet.context-path}
+    prefer-ip-address: true
   client:
-    serviceUrl:
+    service-url:
       defaultZone: http://localhost:7001/eureka/
 
 mybatis:
