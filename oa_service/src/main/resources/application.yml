@@ -4,9 +4,7 @@ spring:
   application:
     name: oa_frame_service
 
-server:
-  servlet:
-    context-path: /oaframe
+
 eureka:
   instance:
     hostname: 127.0.0.1

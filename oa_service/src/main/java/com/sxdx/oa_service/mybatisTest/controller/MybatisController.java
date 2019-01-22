@@ -1,10 +1,8 @@
 package com.sxdx.oa_service.mybatisTest.controller;
 
-import com.sxdx.oa_service.bootTest.bean.User;
 import com.sxdx.oa_service.mybatisTest.bean.Dept;
 import com.sxdx.oa_service.mybatisTest.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
