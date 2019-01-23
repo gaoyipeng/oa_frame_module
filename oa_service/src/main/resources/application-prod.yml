@@ -1,6 +1,10 @@
 server:
   port: 8080
 
+mydefine:
+  linux:
+    db-url: 192.168.86.132
+
 spring:
   datasource:
     #数据源基本配置
@@ -36,7 +40,7 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 
   redis:
-    host: 192.168.0.105
+    host: ${mydefine.linux.db-url}
     port: 6379
     database: 0
     jedis:
@@ -47,7 +51,7 @@ spring:
         max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）
     timeout: 1000 # 连接超时时间（毫秒）
   rabbitmq:
-    host: 192.168.0.105
+    host: ${mydefine.linux.db-url}
     port: 5672
     username: guest
     password: guest

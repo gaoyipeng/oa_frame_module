@@ -4,15 +4,14 @@ spring:
   application:
     name: oa_frame_service
 
-
 eureka:
   instance:
     hostname: 127.0.0.1
-    instance-id: ${spring.cloud.client.ipAddress:127.0.0.1}:${server.port}:${server.servlet.context-path}
+    instance-id: oa_service:${server.port}
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
 
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml     # 所有的mapper映射文件
@@ -21,4 +20,8 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     lazy-loading-enabled: true #延迟加载
     aggressive-lazy-loading: false
+info:
+  app.name: oa_service
+  build.version: 1.0-SNAPSHOT
+  author: gaoyipeng
 

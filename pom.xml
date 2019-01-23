@@ -11,6 +11,7 @@
 
     <modules>
         <module>oa_service</module>
+        <module>oa_client</module>
         <module>oa_core</module>
         <module>oa_eureka_server</module>
     </modules>
@@ -92,6 +93,7 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+
     </build>
 
 

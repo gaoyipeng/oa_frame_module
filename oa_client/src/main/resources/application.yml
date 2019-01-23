@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: oa_client
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    instance-id: oa_client:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+info:
+  app.name: oa_client
+  build.version: 1.0-SNAPSHOT
+  author: gaoyipeng
+
