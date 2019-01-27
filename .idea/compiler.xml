@@ -6,12 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="oa_client01" />
+        <module name="oa_client02" />
         <module name="oa_core" />
+        <module name="oa_eureka_server" />
+        <module name="oa_eureka_server01" />
         <module name="oa_service" />
+        <module name="oa_service01" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="oa_client" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="oa_service01" options="" />
+    </option>
   </component>
 </project>
