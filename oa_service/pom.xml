@@ -150,6 +150,7 @@
                 <configuration>
                     <fork>true</fork>
                 </configuration>
+
                 <executions>
                     <execution>
                         <goals>

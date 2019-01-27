@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class RibbonTestController {
     //private static final String REST_URL_PREFIX = "http://localhost:8080";
-    private static final String REST_URL_PREFIX = "http://OA-FRAME-SERVICE";
+    private static final String REST_URL_PREFIX = "http://OA-SERVICE";
 
     /**
      * 使用 使用restTemplate访问restful接口非常的简单粗暴无脑。 (url, requestMap,ResponseBean.class)

@@ -7,7 +7,7 @@ spring:
 eureka:
   instance:
     hostname: 127.0.0.1
-    instance-id: oa_service:${server.port}
+    instance-id: oa_service01:${server.port}
     prefer-ip-address: true
   client:
     service-url:
@@ -21,7 +21,7 @@ mybatis:
     lazy-loading-enabled: true #延迟加载
     aggressive-lazy-loading: false
 info:
-  app.name: oa_service
+  app.name: oa_service01
   build.version: 1.0-SNAPSHOT
   author: gaoyipeng
 
