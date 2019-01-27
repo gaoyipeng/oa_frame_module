@@ -4,6 +4,7 @@ import com.sxdx.oa_service.mybatisTest.bean.Dept;
 import com.sxdx.oa_service.mybatisTest.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Map;
@@ -17,10 +18,22 @@ public class MybatisController {
     @Autowired
     private DeptService deptService;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping(value = "/getDeptList")
     public List<Dept> getDeptList() {
         List<Dept> deptList = this.deptService.getAllDept();
         return deptList;
+    }
+
+    /**
+     * ribbon 互相调用
+     * @return
+     */
+    @GetMapping(value = "/getOther")
+    public String getOther() {
+        return restTemplate.getForObject("http://OA-CLIENT"+"/consumer/dept/getOther",String.class);
     }
 
     @PostMapping(value = "insertDept")

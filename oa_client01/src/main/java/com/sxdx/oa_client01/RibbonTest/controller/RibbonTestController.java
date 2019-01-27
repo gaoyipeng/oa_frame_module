@@ -34,6 +34,12 @@ public class RibbonTestController {
         return restTemplate.getForObject(REST_URL_PREFIX + "/getDeptMap/" + id, Dept.class);
     }
 
+    @GetMapping(value = "/consumer/dept/getOther")
+    public String getOther()
+    {
+        return "success01";
+    }
+
 
     // 测试@EnableDiscoveryClient,消费端可以调用服务发现
     /*@RequestMapping(value = "/consumer/dept/discovery")

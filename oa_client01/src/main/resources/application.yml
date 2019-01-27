@@ -2,7 +2,7 @@ server:
   port: 8091
 spring:
   application:
-    name: oa-client01
+    name: oa-client
 
 eureka:
   instance:
