@@ -2,7 +2,7 @@ spring:
   profiles:
     active: prod
   application:
-    name: oa_frame_service
+    name: oa-frame-service
 
 eureka:
   instance:

@@ -11,9 +11,11 @@
 
     <modules>
         <module>oa_service</module>
-        <module>oa_client</module>
+        <module>oa_client01</module>
+        <module>oa_client02</module>
         <module>oa_core</module>
         <module>oa_eureka_server</module>
+        <module>oa_eureka_server01</module>
     </modules>
 
     <properties>
