@@ -1,6 +1,6 @@
-package com.sxdx.oa_client01.RibbonTest.controller;
+package com.sxdx.oa_client01.ribbonTest.controller;
 
-import com.sxdx.oa_client01.RibbonTest.bean.Dept;
+import com.sxdx.oa_client01.ribbonTest.bean.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;

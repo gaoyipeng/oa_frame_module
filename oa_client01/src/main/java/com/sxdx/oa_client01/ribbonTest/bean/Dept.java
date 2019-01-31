@@ -1,4 +1,4 @@
-package com.sxdx.oa_client01.RibbonTest.bean;
+package com.sxdx.oa_client01.ribbonTest.bean;
 
 public class Dept {
     private Integer id;
