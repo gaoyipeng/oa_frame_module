@@ -49,6 +49,10 @@ public class MybatisController {
     @GetMapping(value = "/getDeptMap/{id}")
     public Map<String,Object> getDeptReturnMap(@PathVariable Integer id){
         Map<String,Object> map = this.deptService.getDeptReturnMap(id);
+
+        if(map == null){
+            throw new RuntimeException("运行是异常");
+        }
         return map;
     }
 

@@ -26,7 +26,7 @@ public class ConfigBean {
         //RoundRobinRule();轮询
         //RandomRule() 随机
         //RetryRule();默认轮询，服务宕机，多次访问错误后，不再访问
-        return new RandomRule();
+        return new RoundRobinRule();
 
     }
 }

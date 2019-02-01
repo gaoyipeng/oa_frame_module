@@ -4,6 +4,10 @@ spring:
   application:
     name: oa-client
 
+feign:
+  hystrix:
+    enabled: true # 开启Feign熔断
+
 eureka:
   instance:
     hostname: 127.0.0.1
