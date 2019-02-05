@@ -29,4 +29,6 @@ public class ConfigBean {
         return new RoundRobinRule();
 
     }
+
+
 }

@@ -14,3 +14,7 @@
 ##二、修改hosts文件
 127.0.0.1 eureka7001.com  
 127.0.0.1 eureka7002.com
+
+##三、hystrix 连接
+<http://127.0.0.1:8091/hystrix>  
+<http://127.0.0.1:8091/actuator/hystrix.stream>
