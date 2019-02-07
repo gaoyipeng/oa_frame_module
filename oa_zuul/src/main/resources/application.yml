@@ -1,0 +1,32 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: oa-zuul
+
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    instance-id: oa_zuul:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+
+info:
+  app.name: oa-zuul
+  build.version: 1.0-SNAPSHOT
+  author: gaoyipeng
+zuul:
+  ignored-services: "*" #不允许直接使用服务名访问
+  prefix: /module
+  routes:
+    oa-client:
+      path: /oaclient/**
+      serviceId: oa-client
+    oa-service:
+      path: /oaservice/**
+      serviceId: oa-service
+
