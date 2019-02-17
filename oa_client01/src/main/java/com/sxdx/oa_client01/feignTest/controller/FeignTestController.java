@@ -24,4 +24,9 @@ public class FeignTestController {
     public List<Dept> getDeptList(){
         return deptService.getDeptList();
     }
+
+    @GetMapping(value = "/feign/consumer/feignTest")
+    public String feignTest(){
+        return "feign：service调client成功";
+    }
 }

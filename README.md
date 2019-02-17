@@ -16,8 +16,13 @@
 127.0.0.1 eureka7002.com  
 127.0.0.1 zuul8888.com  
 
-##三、hystrix 连接
+##三、hystrix 连接 
+### hystrix-dashboard应用
 <http://127.0.0.1:8091/hystrix>  
 <http://127.0.0.1:8091/actuator/hystrix.stream>  
+###turbine集群的展现  
+<http://127.0.0.1:8001/hystrix>  
+<http://127.0.0.1:8001/turbine.stream>  
+
 ##四、zuul配置访问示例
 <http://zuul8888.com:8888/module/oaservice/getDeptList>  

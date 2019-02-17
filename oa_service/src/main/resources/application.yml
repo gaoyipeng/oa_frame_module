@@ -4,6 +4,16 @@ spring:
   application:
     name: oa-service
 
+feign:
+  hystrix:
+    enabled: true # 开启Feign熔断
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","hystrix.stream"]
+
 eureka:
   instance:
     hostname: 127.0.0.1
