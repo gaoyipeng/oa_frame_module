@@ -20,6 +20,7 @@
         <module>oa_zuul</module>
         <module>oa_turbine</module>
         <module>oa_config_service</module>
+        <module>febs_shiro_jwt</module>
     </modules>
 
     <properties>
