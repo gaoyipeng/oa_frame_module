@@ -19,6 +19,7 @@
         <module>oa_eureka_server01</module>
         <module>oa_zuul</module>
         <module>oa_turbine</module>
+        <module>oa_config_service</module>
     </modules>
 
     <properties>
